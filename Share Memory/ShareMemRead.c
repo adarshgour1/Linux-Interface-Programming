@@ -16,12 +16,12 @@ int main()
 	key_t k_shareMem1 = ftok("firstShMem", 65);
 
 	// create shared memory
-	int ishmId = shmget(k_shareMem1,5*sizeof(A),IPC_CREAT | 0666);
+	int ishmId = shmget(k_shareMem1,2*sizeof(A),IPC_CREAT | 0666);
 
 	// to attached sharememory
 	A *shmPtr = shmat(ishmId,(void *)0, 0);
 
-    for (int i = 0; i < 5; i++)
+    for (int i = 0; i < 2; i++)
     {
        printf("%d stName:[%s] iAge:[%d]\n",i,shmPtr[i].stName,shmPtr[i].iAge);
     }
