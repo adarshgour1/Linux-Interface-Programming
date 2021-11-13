@@ -1,0 +1,24 @@
+This thread moduls explian basic of multithreading
+
+#In thread1.c 
+there is simple program which shows how to create a thread.
+we can use either pthread_exit or pthred_join but good choice is pthread_exit as in this thread is independend 
+we use pthred_join when we required a return value from thread like any function.
+
+#In thread2.c
+this file represent, we can create multiple thread using single thread independend
+
+#In thread3.c
+here we call your turn function in main. we can also make a another thread for same but wise choice is call it in main because if everything is doing by thread then what is use of main thread it only consume thread cycle.
+
+#In thread4.c
+how use pthred_join is represented here, we use malloc because in thread we return  pointer not any value so when thread return it stack will get vanished and pointer become darlington pointer.
+
+#In thread5.c 
+another example of pthred_join
+
+#In thread7.c 
+use of mutex to avoid raisecondition issue.
+
+#In therad6.c 
+use of condition variable in threading.
