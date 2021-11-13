@@ -17,7 +17,7 @@ int main()
 	key_t k_shareMem1 = ftok("firstShMem", 65);
 
 	// create shared memory
-	int ishmId = shmget(k_shareMem1, 5 * sizeof(A), IPC_CREAT | 0666);
+	int ishmId = shmget(k_shareMem1, 2 * sizeof(A), IPC_CREAT | 0666);
 
 	// to attached sharememory
 	A *shmPtr = shmat(ishmId, (void *)0, 0);
@@ -32,20 +32,6 @@ int main()
 	memcpy(&shmPtr[1], &a, sizeof(A));
 	memset(&a, '\0', sizeof(A));
 
-	strcpy(a.stName, "Sham");
-	a.iAge = 52;
-	memcpy(&shmPtr[2], &a, sizeof(A));
-	memset(&a, '\0', sizeof(A));
-
-	strcpy(a.stName, "Saroj");
-	a.iAge = 32;
-	memcpy(&shmPtr[3], &a, sizeof(A));
-	memset(&a, '\0', sizeof(A));
-
-	strcpy(a.stName, "Neha");
-	a.iAge = 22;
-	memcpy(&shmPtr[4], &a, sizeof(A));
-	memset(&a, '\0', sizeof(A));
 
 	return 0;
 }
